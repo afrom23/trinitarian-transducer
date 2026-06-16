@@ -1,3 +1,4 @@
+/// first version of t3t us main and t3t contained on src
 /// Trinitarian Transducer (T3T)
 /// Based on the Pure Functional Transducer Manifesto.
 /// License: GPLv3
