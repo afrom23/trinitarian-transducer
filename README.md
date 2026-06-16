@@ -73,6 +73,12 @@ $$X0.x = \left[ \sum_{n=1}^3 \left( \frac{0}{1} \ \text{AND} \ \frac{1}{0} \righ
 Este sistema no es un procesador; es un **traductor funcional puro**. No almacena estados intermedios ni mapas de datos. Permite que el ruido caótico se auto-organice por pura restricción geométrica. Es el minimalismo lógico llevado al hueso de la materia.
 
 ----------
+## Implementación (Prototipo en Rust)
+El código fuente está disponible en este repositorio bajo el nombre `T3T.rs`. 
+- **Compilación:** `rustc T3T.rs`
+- **Ejecución:** `./T3T`
+
+----------
 
 ## Licencia (Copyleft)
 
