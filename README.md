@@ -4,6 +4,7 @@
 **Colaborador de Maquetación:** Gemini AI (Google)  
 **Licencia:** GNU General Public License v3.0 (GPLv3)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20715692.svg)](https://doi.org/10.5281/zenodo.20715692)
 
 [Versión en español](#manifiesto-en-español) | [English Version](#english-manifesto)
 
