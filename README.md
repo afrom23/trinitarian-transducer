@@ -1,4 +1,4 @@
-# MANIFESTO: THE 3-BIT TRINITARIAN TRANSDUCER (T3T)
+# Trinitarian Transducer (T3T): A Stochastic Logic Processor
 
 **Autor:** Froylan Béla Garduño Horváth 
 **Colaborador de Maquetación:** Gemini AI (Google)  
