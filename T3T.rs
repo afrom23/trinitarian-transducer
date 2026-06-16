@@ -1,52 +1,52 @@
-/// Motor Trinitario (T3T)
-/// Basado en el Manifiesto del Traductor Funcional Puro.
-/// Licencia: GPLv3
+/// Trinitarian Transducer (T3T)
+/// Based on the Pure Functional Transducer Manifesto.
+/// License: GPLv3
 
-struct MotorTrinitario {
-    registro: u8, // Usamos u8 pero solo nos importan los 3 bits inferiores
+struct TrinitarianTransducer {
+    register: u8, // We use u8, but only the lowest 3 bits are relevant
 }
 
-impl MotorTrinitario {
+impl TrinitarianTransducer {
     fn new() -> Self {
-        MotorTrinitario { registro: 0b000 }
+        TrinitarianTransducer { register: 0b000 }
     }
 
-    /// La función de traducción: el corazón del mecanismo
-    /// Recibe un bit de ruido (0 o 1) y ejecuta el ciclo de fase
-    fn traducir(&mut self, ruido: u8) {
-        let entrada = ruido & 0b001; // Aislamos el bit de ruido
+    /// The translation function: the core of the mechanism
+    /// Receives a noise bit (0 or 1) and executes the phase cycle
+    fn translate(&mut self, noise: u8) {
+        let input = noise & 0b001; // Isolate the noise bit
 
-        // 1. COMPUERTA AND (El Filtro)
-        // Cruzamos el estado actual con el ruido entrante
-        let resultado_and = self.registro & entrada;
+        // 1. AND GATE (The Filter)
+        // Cross-reference the current state with the incoming noise
+        let and_result = self.register & input;
 
-        // 2. GIRO DE HILBERT Y FILTRO MOD3
-        // Desplazamos para cambiar de fase (giro 90 grados)
-        let siguiente_fase = resultado_and << 1;
+        // 2. HILBERT TURN AND MOD3 FILTER
+        // Shift to change phase (90-degree turn)
+        let next_phase = and_result << 1;
 
-        // 3. LA LEY DE AUTORREGULACIÓN (/-AND por desborde)
-        // Si el bit sale del cubo de 3 bits ( > 7), forzamos el reset a 000
-        if siguiente_fase > 0b111 {
-            self.registro = 0b000;
+        // 3. LAW OF SELF-REGULATION (/-AND via overflow)
+        // If the bit exceeds the 3-bit cube (> 7), force a reset to 000
+        if next_phase > 0b111 {
+            self.register = 0b000;
         } else {
-            self.registro = siguiente_fase;
+            self.register = next_phase;
         }
     }
 
-    fn ver_estado(&self) {
-        println!("Estado actual: {:03b}", self.registro & 0b111);
+    fn show_state(&self) {
+        println!("Current state: {:03b}", self.register & 0b111);
     }
 }
 
 fn main() {
-    let mut motor = MotorTrinitario::new();
-    let flujo_ruido = [1, 1, 1, 0, 1]; // Ejemplo de ráfaga de ruido estocástico
+    let mut motor = TrinitarianTransducer::new();
+    let noise_flow = [1, 1, 1, 0, 1]; // Example of a stochastic noise burst
 
-    println!("Iniciando el Motor Trinitario...");
+    println!("Starting the Trinitarian Transducer...");
     
-    for (i, &bit) in flujo_ruido.iter().enumerate() {
-        motor.traducir(bit);
-        print!("Ciclo {}: Entrada {}, ", i + 1, bit);
-        motor.ver_estado();
+    for (i, &bit) in noise_flow.iter().enumerate() {
+        motor.translate(bit);
+        print!("Cycle {}: Input {}, ", i + 1, bit);
+        motor.show_state();
     }
 }
